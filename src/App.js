@@ -4,34 +4,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons'; 
-
+import { MaterialIcons } from '@expo/vector-icons';
+import HomeScreen from './Home';
+import MapScreen from './Map';
+import SettingsScreen from './Settings';
+import AlarmScreen from './Alarm';
 
 const Tab = createMaterialBottomTabNavigator();
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#333740' }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
-
-function MapScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#333740'}}>
-      <Text>Google maps!</Text>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#333740' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
 
 function App() {
   return (
@@ -58,7 +37,7 @@ function App() {
               <MaterialCommunityIcons name="map" color={color} size={26} />
             )
         }} />
-        <Tab.Screen name="Alarm" component={SettingsScreen}
+        <Tab.Screen name="Alarm" component={AlarmScreen}
           component={SettingsScreen}
           options={{
             tabBarLabel: 'Alarm',
