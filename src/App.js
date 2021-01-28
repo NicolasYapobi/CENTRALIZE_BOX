@@ -3,14 +3,18 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import HomeScreen from './Home';
 import MapScreen from './Map';
 import SettingsScreen from './Settings';
 import AlarmScreen from './Alarm';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 
 const Tab = createMaterialBottomTabNavigator();
+
 
 function App() {
   return (
