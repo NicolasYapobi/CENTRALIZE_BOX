@@ -7,6 +7,15 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Header } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import SwitchSelector from "react-native-switch-selector";
+
+var lock = require('./assets/lock.png')
+var unlock = require('./assets/close.jpg')
+
+const options = [
+  { label: "open", value: "open"},
+  { label: "close", value: "close"},
+];
 
 function HomeScreen() {
   const [currentDate, setCurrentDate] = useState('');
@@ -39,6 +48,12 @@ function HomeScreen() {
           <Text>
             MyBox
           </Text>
+          <SwitchSelector
+            options={options}
+            inital={0}
+            buttonColor={'#8557ff'}
+            borderColor={'#8557ff'}
+            onPress={value => console.log("Box is ${value}")}/>
         </View>
         <View>
           <Text style={styles.text_title}>
