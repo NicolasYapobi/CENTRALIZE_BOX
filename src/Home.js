@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -8,24 +8,62 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Header } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-
 function HomeScreen() {
+  const [currentDate, setCurrentDate] = useState('');
+
+  useEffect(() => {
+    var date = new Date().getDate();
+    var month = new Date().getMonth() + 1;
+    var year = new Date().getFullYear();
+    var hours = new Date().getHours();
+    var min = new Date().getMinutes();
+    var sec = new Date().getSeconds();
+    setCurrentDate(
+      date + '/' + month + '/' + year 
+      + ' ' + hours + ':' + min + ':' + sec
+    );
+  }, []);
   return (
     <SafeAreaProvider>
-    <Header 
-      centerComponent={{ text: 'BOX HOME', style: { color: '#7f6619'}}}
-      containerStyle={{
-        backgroundColor: '#ffcc32'
-      }}
-    />
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#333740'}}>
-      <Image source={require('./assets/box-outline.png')}/>
-      <Text style={{color: 'white'}}>
-        sALUT
-      </Text>
-    </View>
+      <Header 
+        centerComponent={{ text: 'BOX HOME', style: { color: 'white'}}}
+        containerStyle={{
+          backgroundColor: '#8557ff'
+        }}
+      />
+      <View>
+        <View>
+          <Text style={styles.text_title}>
+            System
+          </Text>
+          <Text>
+            MyBox
+          </Text>
+        </View>
+        <View>
+          <Text style={styles.text_title}>
+            History
+          </Text>
+          <Text>
+            Last date: {currentDate}
+          </Text>
+        </View>
+      </View>
     </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  square: {
+    width: 100,
+    height: 100,
+    backgroundColor: "red",
+    borderWidth: 2,
+    borderRadius: 6,
+  },
+  text_title: {
+    fontSize: 30,
+  }
+})
 
 export default HomeScreen;

@@ -21,9 +21,10 @@ function App() {
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName="Feed"
-        activeColor="white"
+        activeColor="#6c63fd"
+        inactiveColor="#d3d3d3"
         labelStyle={{ fontSize: 12 }}
-        barStyle={{ backgroundColor: '#ffcc32' }}
+        barStyle={{ backgroundColor: 'white' }}
       >
         <Tab.Screen name="Home" 
           component={HomeScreen}
