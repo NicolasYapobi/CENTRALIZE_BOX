@@ -41,27 +41,31 @@ function HomeScreen() {
         }}
       />
       <View>
-        <View>
-          <Text style={styles.text_title}>
-            System
-          </Text>
-          <Text>
-            MyBox
-          </Text>
-          <SwitchSelector
-            options={options}
-            inital={0}
-            buttonColor={'#8557ff'}
-            borderColor={'#8557ff'}
-            onPress={value => console.log("Box is ${value}")}/>
+        <View style={styles.container}>
+          <View style={styles.container_box}>
+            <Text style={styles.text_title}>
+              System
+            </Text>
+            <Text/>
+              MyBox
+            <Image source={require("./assets/box-outline.png")}></Image>
+            <SwitchSelector
+              options={options}
+              inital={0}
+              buttonColor={'#8557ff'}
+              borderColor={'#8557ff'}
+              onPress={value => console.log("Box is ${value}")}/>
+          </View>
         </View>
-        <View>
-          <Text style={styles.text_title}>
-            History
-          </Text>
-          <Text>
-            Last date: {currentDate}
-          </Text>
+        <View style={styles.container}>
+          <View style={styles.container_box}>
+            <Text style={styles.text_title}>
+              History
+            </Text>
+            <Text>
+              Last date: {currentDate}
+            </Text>
+          </View>
         </View>
       </View>
     </SafeAreaProvider>
@@ -69,6 +73,15 @@ function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    margin: 15,
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: "grey",
+  },
+  container_box: {
+    margin: 20
+  },
   square: {
     width: 100,
     height: 100,
