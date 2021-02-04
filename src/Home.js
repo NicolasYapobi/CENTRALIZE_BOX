@@ -46,8 +46,7 @@ function HomeScreen() {
             <Text style={styles.text_title}>
               System
             </Text>
-            <Text/>
-              MyBox
+            <Text>MyBox</Text>
             <Image source={require("./assets/box-outline.png")}></Image>
             <SwitchSelector
               options={options}
