@@ -5,7 +5,11 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { NavigationContainer } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-
+import {
+    Player,
+    Recorder,
+    MediaStates
+} from '@react-native-community/audio-toolkit';
 function AlarmScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#333740' }}>
