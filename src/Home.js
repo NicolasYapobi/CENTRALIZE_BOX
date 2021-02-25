@@ -5,10 +5,11 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { NavigationContainer } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons'; 
 import { Header } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SwitchSelector from "react-native-switch-selector";
-
+import RNBluetoothClassic, { BluetoothEventType } from 'react-native-bluetooth-classic';
 var lock = require('./assets/lock.png')
 var unlock = require('./assets/close.jpg')
 
@@ -17,9 +18,23 @@ const options = [
   { label: "close", value: "close"},
 ];
 
-function HomeScreen() {
-  const [currentDate, setCurrentDate] = useState('');
+function IsEnabled()
+{
+  try {
+    enabled = RNBluetoothClassic.isBluetoothEnabled();
+    console.log("connected");
+  } catch (err) {
+    console.log(err);
+  }
+}
 
+function blue(string) {
+  console.log(string);
+}
+
+function HomeScreen() {
+  // const [device, IsEnabled] = useState('');
+  const [currentDate, setCurrentDate] = useState('');
   useEffect(() => {
     var date = new Date().getDate();
     var month = new Date().getMonth() + 1;
@@ -37,23 +52,32 @@ function HomeScreen() {
       <Header 
         centerComponent={{ text: 'BOX HOME', style: { color: 'white'}}}
         containerStyle={{
-          backgroundColor: '#8557ff'
+          backgroundColor: '#008184'
         }}
       />
       <View>
         <View style={styles.container}>
           <View style={styles.container_box}>
-            <Text style={styles.text_title}>
-              System
-            </Text>
-            <Text>MyBox</Text>
-            <Image source={require("./assets/box-outline.png")}></Image>
-            <SwitchSelector
-              options={options}
-              inital={0}
-              buttonColor={'#8557ff'}
-              borderColor={'#8557ff'}
-              onPress={value => console.log("Box is ${value}")}/>
+            <View style={{flex: 0, flexDirection: 'row'}}>
+              <Text style={styles.text_title}>
+                System
+              </Text>
+              <FontAwesome style={{paddingLeft: 100}} 
+                           size={64} 
+                           name="power-off"
+                           onPress={() => IsEnabled()}/>
+            </View>
+            <View style={{flex: 0, flexDirection: 'row', alignItems: 'center'}}>
+              <Image source={require("./assets/box-outline.png")} style={{marginTop: 20, marginBottom: 20, width: 100, height: 100}}></Image>
+              <Text style={{paddingLeft: 20, paddingRight: 20}}>NameTest</Text>
+              <FontAwesome name="pencil" size={24} color="black" />
+            </View>
+              <SwitchSelector
+                options={options}
+                inital={0}
+                buttonColor={'#008184'}
+                borderColor={'#8557ff'}
+                onPress={value => blue("Test")}/>
           </View>
         </View>
         <View style={styles.container}>

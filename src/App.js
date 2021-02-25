@@ -21,7 +21,7 @@ function App() {
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName="Feed"
-        activeColor="#6c63fd"
+        activeColor="#008184"
         inactiveColor="#d3d3d3"
         labelStyle={{ fontSize: 12 }}
         barStyle={{ backgroundColor: 'white' }}
@@ -47,7 +47,7 @@ function App() {
           options={{
             tabBarLabel: 'Alarm',
             tabBarIcon: ({color}) => (
-              <MaterialIcons name="alarm" color={color} size={26}/>
+              <MaterialCommunityIcons name="alarm-light-outline" size={26} color={color}/>
             )
           }} />
         <Tab.Screen name="Settings" component={SettingsScreen}
